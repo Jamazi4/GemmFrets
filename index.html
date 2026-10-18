@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'">
+  <title>fretmap</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">fret<span>map</span></div>
+    <div id="scale-summary" class="summary"></div>
+  </header>
+
+  <section class="controls">
+    <div class="field">
+      <label for="tuning-select">Tuning</label>
+      <select id="tuning-select"></select>
+    </div>
+    <div class="field">
+      <label>Strings <small>low → high · ▲▼ to retune</small></label>
+      <div class="tuning-editor">
+        <button id="string-remove" class="mini" title="Remove lowest string">−</button>
+        <div id="tuning-strings" class="string-chips"></div>
+        <button id="string-add" class="mini" title="Add a lower string">+</button>
+      </div>
+    </div>
+    <div class="field">
+      <label for="root-select">Root</label>
+      <select id="root-select"></select>
+    </div>
+    <div class="field">
+      <label for="scale-select">Scale</label>
+      <select id="scale-select"></select>
+    </div>
+    <div class="field toggles">
+      <label class="check"><input type="checkbox" id="opt-intervals"> Show intervals</label>
+      <label class="check"><input type="checkbox" id="opt-all"> Show all notes</label>
+      <label class="check"><input type="checkbox" id="opt-lowtop"> Low string on top</label>
+      <label class="check"><input type="checkbox" id="opt-lefty"> Left-handed</label>
+    </div>
+  </section>
+
+  <main>
+    <div class="fretboard-wrap">
+      <div id="fretboard"></div>
+    </div>
+    <div id="legend" class="legend"></div>
+
+    <section class="panel">
+      <div class="panel-head">
+        <h2>Positions</h2>
+        <span class="hint">Box shapes for learning the scale one area at a time · ← → to step</span>
+      </div>
+      <div id="positions" class="btn-row"></div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head">
+        <h2>Chords in this scale</h2>
+        <span id="chord-info" class="hint">Click a chord to show every place its notes occur · Esc to clear</span>
+      </div>
+      <div id="chords"></div>
+    </section>
+  </main>
+
+  <script src="theory.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
